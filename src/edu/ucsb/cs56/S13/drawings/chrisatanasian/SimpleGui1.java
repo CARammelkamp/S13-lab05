@@ -20,7 +20,7 @@ public class SimpleGui1 {
 	JFrame frame = new JFrame();
 	JButton button = new JButton("click me, I know you want to ;)");
 
-	java.awt.Color myColor = new java.awt.Color(204,255,153);
+	java.awt.Color myColor = new java.awt.Color(255,051,051);
 	button.setBackground(myColor);
 	button.setOpaque(true);
 
