@@ -33,7 +33,7 @@ public class Pencil extends GeneralPathWrapper implements Shape
        @param width width of the pencil
        @param height from the top left corner down to before the triangle tip
      */
-    public House(double x, double y, double width, double height)
+    public Pencil(double x, double y, double width, double height)
     {
     
         // Rather than having to scale at the end, we can just
@@ -42,35 +42,26 @@ public class Pencil extends GeneralPathWrapper implements Shape
         // hard coded a particular drawing, this may be an easier
         // way.
         
-        double firstStoryHeight = .75 * height;
-        double roofHeight = height - firstStoryHeight;
-        
-        double firstStoryUpperLeftY = y + roofHeight;
-        
-        // Make the first story
-        
-        Rectangle2D.Double firstStory = 
-            new Rectangle2D.Double(x, firstStoryUpperLeftY ,
-                          width, firstStoryHeight);
+	// Rectangle2D.Double firstStory = 
+        //    new Rectangle2D.Double(x, firstStoryUpperLeftY ,
+        //                  width, firstStoryHeight);
                           
-        // make the roof.   Remember that y goes DOWN the page,
-        // so we ADD to y to get a "lower" value on the screen
-        
-        Line2D.Double leftRoof = 
-            new Line2D.Double (x, y + roofHeight,
-                               x + width/2.0, y);
-                               
-        Line2D.Double rightRoof =
-            new Line2D.Double (x + width/2.0, y,
-                               x + width, y + roofHeight);
+        // make the left and right side of the pencil
+	
+	Line2D.Double leftSide = 
+	    new Line2D.Double (x, y,
+			       x, y + height);
 
-        // put the whole house together
+	Line2D.Double rightSide =
+	    new Line2D.Double (x + width, y,
+			       x + width, y + height);
+
+        // put the whole pencil together
        
-        GeneralPath wholeHouse = this.get();
-        wholeHouse.append(firstStory, false);
-        wholeHouse.append(leftRoof, false);
-        wholeHouse.append(rightRoof, false); 
-        
+        GeneralPath wholePencil = this.get();
+        wholePencil.append(leftSide, false);
+        wholePencil.append(rightSide, false);
+             
     }
 
 }
