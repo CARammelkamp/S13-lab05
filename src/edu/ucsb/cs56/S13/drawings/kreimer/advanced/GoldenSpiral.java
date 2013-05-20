@@ -71,7 +71,7 @@ public class GoldenSpiral extends GoldenRectangle implements Shape
 			thisXOrigin = nextXOrigin;
 			thisYOrigin = nextYOrigin;
 			
-			//Origin moves differently after each rotation
+			//Origin moves differently after each rotation. This was hard.
 			if(i%4 == 0){
 				nextXOrigin = thisXOrigin + nextHeight - nextWidth/2;
 				nextYOrigin = thisYOrigin - nextWidth/2;
