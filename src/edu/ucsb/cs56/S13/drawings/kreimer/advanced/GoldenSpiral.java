@@ -38,7 +38,7 @@ public class GoldenSpiral extends GoldenRectangle implements Shape
 		//Make the compiler happy
 		super(x,y,height);
 		
-		//Gather all the gobbles of necessary info
+		//Prep variables for the gobbles of necessary info
 		double goldenRatio = 1.61803398875;
 		double thisHeight = height;
 		double nextHeight = height/goldenRatio;
@@ -49,7 +49,7 @@ public class GoldenSpiral extends GoldenRectangle implements Shape
 		double nextYOrigin = y - thisHeight + nextWidth/2 + nextHeight/2;
 		double nextXOrigin = x + thisWidth/2 - nextWidth/2;
 		
-		//Set up for the loop
+		//Setup for the loop
 		int i = 0;
 		GeneralPath wholeGoldenSpiral= this.get();
 		Shape gR = this;
