@@ -20,20 +20,21 @@ import edu.ucsb.cs56.S13.drawings.utilities.GeneralPathWrapper;
  * A class with static methods for drawing various pictures
  * 
  * @author Phill Conrad 
- * @version for CS10, lab06, Spring 2009
+ * @author Chris Atanasian
+ * @version for CS56, lab05, Spring 2013
  */
 
 
 public class AllMyDrawings
 {
-    /** Draw a picture with a few houses 
+    /** Draw a picture with a few pencils 
      */
 
     public static void drawPicture1(Graphics2D g2) {
 
-	House h1 = new House(100,250,50,75);
-	g2.setColor(Color.CYAN); g2.draw(h1);
-	
+	Pencil p1 = new Pencil(100,250,25,100);
+	g2.setColor(Color.BLACK); g2.draw(p1);
+	/*
 	// Make a black house that's half the size, 
 	// and moved over 150 pixels in x direction
 
@@ -71,7 +72,8 @@ public class AllMyDrawings
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
 	g2.drawString("A few houses by Phill Conrad", 20,20);
-    }
+	*/
+	}
 
 
     /** Draw a picture with a few houses and coffee cups
