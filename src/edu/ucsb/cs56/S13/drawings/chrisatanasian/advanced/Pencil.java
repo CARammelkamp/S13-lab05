@@ -54,7 +54,7 @@ public class Pencil extends GeneralPathWrapper implements Shape
 
 	// make the triangular tip of the pencil
 
-	double tipHeight = height/10.0;
+	double tipHeight = height/8.0;
 
 	Line2D.Double leftTip =
 	    new Line2D.Double (x, y + height,
@@ -70,6 +70,8 @@ public class Pencil extends GeneralPathWrapper implements Shape
         wholePencil.append(leftSide, false);
         wholePencil.append(rightSide, false);
 	wholePencil.append(top, false);
+	wholePencil.append(leftTip, false);
+	wholePencil.append(rightTip, false);
              
     }
 
