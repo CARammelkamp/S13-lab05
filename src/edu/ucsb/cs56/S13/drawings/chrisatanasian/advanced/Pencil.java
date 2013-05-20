@@ -20,7 +20,7 @@ import edu.ucsb.cs56.S13.drawings.utilities.GeneralPathWrapper;
    rotated, scaled, etc.
       
    @author Chris Atanasian 
-   @version for CS56, Sprin 13, UCSB
+   @version for CS56, Spring 13, UCSB
    
 */
 public class Pencil extends GeneralPathWrapper implements Shape
