@@ -64,6 +64,21 @@ public class Pencil extends GeneralPathWrapper implements Shape
 	    new Line2D.Double (x + width, y + height,
 			       x + width/2.0, y + height + tipHeight);
 
+	// make the line near the tip of the pencil
+
+	Line2D.Double line = 
+	    new Line2D.Double (x, y + height,
+			       x + width, y + height);
+	/*
+	// make the lead of the pencil
+
+	int leadHeight = 2;
+	int leadWidth = 0;
+
+	Rectangle2D.Double lead =
+	    new Rectangle2D.Double (x + width/2.0, y + height + tipHeight,
+				    leadWidth, leadHeight);
+	*/
         // put the whole pencil together
        
         GeneralPath wholePencil = this.get();
@@ -72,6 +87,8 @@ public class Pencil extends GeneralPathWrapper implements Shape
 	wholePencil.append(top, false);
 	wholePencil.append(leftTip, false);
 	wholePencil.append(rightTip, false);
+	wholePencil.append(line, false);
+	// wholePencil.append(lead, false);
              
     }
 
