@@ -36,17 +36,7 @@ public class Pencil extends GeneralPathWrapper implements Shape
     public Pencil(double x, double y, double width, double height)
     {
     
-        // Rather than having to scale at the end, we can just
-        // draw things the right way to begin with, using the
-        // x, y, width and height.   If you haven't already
-        // hard coded a particular drawing, this may be an easier
-        // way.
-        
-	// Rectangle2D.Double firstStory = 
-        //    new Rectangle2D.Double(x, firstStoryUpperLeftY ,
-        //                  width, firstStoryHeight);
-                          
-        // make the left and right side of the pencil
+	// make the left and right side of the pencil
 	
 	Line2D.Double leftSide = 
 	    new Line2D.Double (x, y,
@@ -56,11 +46,30 @@ public class Pencil extends GeneralPathWrapper implements Shape
 	    new Line2D.Double (x + width, y,
 			       x + width, y + height);
 
+	// make the top part of the pencil
+
+	Line2D.Double top = 
+	    new Line2D.Double (x, y,
+			       x + width, y);
+
+	// make the triangular tip of the pencil
+
+	double tipHeight = height/10.0;
+
+	Line2D.Double leftTip =
+	    new Line2D.Double (x, y + height,
+			       x + width/2.0, y + height + tipHeight);
+
+	Line2D.Double rightTip = 
+	    new Line2D.Double (x + width, y + height,
+			       x + width/2.0, y + height + tipHeight);
+
         // put the whole pencil together
        
         GeneralPath wholePencil = this.get();
         wholePencil.append(leftSide, false);
         wholePencil.append(rightSide, false);
+	wholePencil.append(top, false);
              
     }
 
