@@ -34,14 +34,14 @@ public class AllMyDrawings
 
 	Pencil p1 = new Pencil(100,250,25,100);
 	g2.setColor(Color.BLACK); g2.draw(p1);
-	/*
-	// Make a black house that's half the size, 
+	
+	// Make a red pencil that's half the size, 
 	// and moved over 150 pixels in x direction
 
-	Shape h2 = ShapeTransforms.scaledCopyOfLL(h1,0.5,0.5);
-	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
-	g2.setColor(Color.BLACK); g2.draw(h2);
-	
+	Shape p2 = ShapeTransforms.scaledCopyOfLL(p1,0.5,0.5);
+	p2 = ShapeTransforms.translatedCopyOf(p2,150,0);
+	g2.setColor(Color.RED); g2.draw(p2);
+	/*
 	// Here's a house that's 4x as big (2x the original)
 	// and moved over 150 more pixels to right.
 	h2 = ShapeTransforms.scaledCopyOfLL(h2,4,4);
