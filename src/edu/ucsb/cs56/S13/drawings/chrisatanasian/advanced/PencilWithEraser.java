@@ -39,10 +39,19 @@ public class PencilWithEraser extends Pencil implements Shape
 	
 	// make the metal above the top of the pencil before the eraser
 
-	//Line2D.Double metalLeftSide =
-	//    new Line2D.
+	double metalHeight = height/4.0;
+
+	Line2D.Double metalLeftSide =
+	    new Line2D.Double (x, y,
+			       x, y - metalHeight);
+
+	Line2D.Double metalRightSide = 
+	    new Line2D.Double (x + width, y,
+			       x + width, y - metalHeight);
 	
         GeneralPath wholePencil = this.get();
+	wholePencil.append(metalLeftSide, false);
+	wholePencil.append(metalRightSide, false);
          
     }
 
