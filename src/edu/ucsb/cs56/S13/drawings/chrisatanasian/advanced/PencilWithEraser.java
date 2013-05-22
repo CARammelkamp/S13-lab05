@@ -49,9 +49,17 @@ public class PencilWithEraser extends Pencil implements Shape
 	    new Line2D.Double (x + width, y,
 			       x + width, y - metalHeight);
 	
+	// make the eraser
+
+	Rectangle2D.Double metalLines =
+	    new Rectangle2D.Double (x, y - 1.50*metalHeight,
+				    width, metalHeight);
+
+
         GeneralPath wholePencil = this.get();
 	wholePencil.append(metalLeftSide, false);
 	wholePencil.append(metalRightSide, false);
+	wholePencil.append(metalLines, false);
          
     }
 
