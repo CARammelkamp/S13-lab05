@@ -82,29 +82,29 @@ public class AllMyDrawings
 
 	// Draw some coffee cups.
 	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-	CoffeeCup tallSkinny = new CoffeeCup(20,150,20,40);
-	CoffeeCup shortFat = new CoffeeCup(20,250,40,20);
+        PencilWithEraser large = new PencilWithEraser(100,50,225,150);
+	PencilWithEraser small = new PencilWithEraser(20,50,40,30);
+	PencilWithEraser tallSkinny = new PencilWithEraser(20,150,20,40);
+	PencilWithEraser shortFat = new PencilWithEraser(20,250,40,20);
 	
 	g2.setColor(Color.RED);     g2.draw(large);
-	g2.setColor(Color.GREEN);   g2.draw(smallCC);
+	g2.setColor(Color.GREEN);   g2.draw(small);
 	g2.setColor(Color.BLUE);    g2.draw(tallSkinny);
 	g2.setColor(Color.MAGENTA); g2.draw(shortFat);
 	
-	House h1 = new House(100,250,50,75);
-	g2.setColor(Color.CYAN); g2.draw(h1);
+        Pencil p1 = new Pencil(100,250,50,75);
+	g2.setColor(Color.CYAN); g2.draw(p1);
 	
 	// Make a black house that's half the size, 
 	// and moved over 150 pixels in x direction
-	Shape h2 = ShapeTransforms.scaledCopyOfLL(h1,0.5,0.5);
-	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
-	g2.setColor(Color.BLACK); g2.draw(h2);
+	Shape p2 = ShapeTransforms.scaledCopyOfLL(p1,0.5,0.5);
+	p2 = ShapeTransforms.translatedCopyOf(p2,150,0);
+	g2.setColor(Color.BLACK); g2.draw(p2);
 	
 	// Here's a house that's 4x as big (2x the original)
 	// and moved over 150 more pixels to right.
-	h2 = ShapeTransforms.scaledCopyOfLL(h2,4,4);
-	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
+	p2 = ShapeTransforms.scaledCopyOfLL(p2,4,4);
+	p2 = ShapeTransforms.translatedCopyOf(p2,150,0);
 	
 	// We'll draw this with a thicker stroke
 	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);       
@@ -116,26 +116,26 @@ public class AllMyDrawings
 	Stroke orig=g2.getStroke();
 	g2.setStroke(thick);
 	g2.setColor(new Color(0x002FA7)); 
-	g2.draw(h2); 
+	g2.draw(p2); 
 	
 	// Draw two houses with Windows
 	
-	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
+	PencilWithEraser pw1 = new PencilWithEraser(50,350,40,75);
+	PencilWithEraser pw2 = new PencilWithEraser(200,350,200,100);
 	
-	g2.draw(hw1);
+	g2.draw(pw1);
 	g2.setColor(new Color(0x8F00FF)); 
 
 	// Rotate the second house 45 degrees around its center.
-	Shape hw3 = ShapeTransforms.rotatedCopyOf(hw2, Math.PI/4.0);
+	Shape pw3 = ShapeTransforms.rotatedCopyOf(pw2, Math.PI/4.0);
 
-	g2.draw(hw3);
+	g2.draw(pw3);
 	
 	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A bunch of Coffee Cups and a few houses by Phill Conrad", 20,20);
+	g2.drawString("A bunch of Pencils by Chris Atanasian", 20,20);
     }
   
     /** Draw a different picture with a five pencils in different sizes/colors
