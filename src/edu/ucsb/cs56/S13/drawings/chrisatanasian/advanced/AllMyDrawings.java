@@ -41,11 +41,11 @@ public class AllMyDrawings
 	Shape p2 = ShapeTransforms.scaledCopyOfLL(p1,0.5,0.5);
 	p2 = ShapeTransforms.translatedCopyOf(p2,150,0);
 	g2.setColor(Color.RED); g2.draw(p2);
-	/*
-	// Here's a house that's 4x as big (2x the original)
+	
+	// Here's a pencil that's 4x as big (2x the original)
 	// and moved over 150 more pixels to right.
-	h2 = ShapeTransforms.scaledCopyOfLL(h2,4,4);
-	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
+	p2 = ShapeTransforms.scaledCopyOfLL(p2,4,4);
+	p2 = ShapeTransforms.translatedCopyOf(p2,150,0);
 	
 	// We'll draw this with a thicker stroke
 	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);       
@@ -57,8 +57,8 @@ public class AllMyDrawings
 	Stroke orig=g2.getStroke();
 	g2.setStroke(thick);
 	g2.setColor(new Color(0x002FA7)); 
-	g2.draw(h2); 
-	*/
+	g2.draw(p2); 
+	
 	// Draw two houses with Windows
 	
 	PencilWithEraser pw1 = new PencilWithEraser(50,350,40,75);
@@ -67,12 +67,12 @@ public class AllMyDrawings
 	g2.draw(pw1);
 	g2.setColor(new Color(0x8F00FF)); g2.draw(pw2);
 	
-	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
-	/*
+	// Signing and labeling drawings
+	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A few houses by Phill Conrad", 20,20);
-	*/
+	g2.drawString("A few pencils by Chris Atanasian", 20,20);
+	
 	}
 
 
