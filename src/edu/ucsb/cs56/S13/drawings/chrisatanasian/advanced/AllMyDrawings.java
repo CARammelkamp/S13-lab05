@@ -76,7 +76,7 @@ public class AllMyDrawings
 	}
 
 
-    /** Draw a picture with a few houses and coffee cups
+    /** Draw a picture with a few pencils
      */
     public static void drawPicture2(Graphics2D g2) {
 
@@ -138,23 +138,29 @@ public class AllMyDrawings
 	g2.drawString("A bunch of Coffee Cups and a few houses by Phill Conrad", 20,20);
     }
   
-    /** Draw a different picture with a few houses and coffee cups
+    /** Draw a different picture with a five pencils in different sizes/colors
      */
 
     public static void drawPicture3(Graphics2D g2) {
 	
 	// label the drawing
 	
-	g2.drawString("A bunch of Coffee Cups by Phill Conrad", 20,20);
+	g2.drawString("Pencils of different sizes by Chris Atanasian", 20,20);
 
 	
 	// Draw some coffee cups.
 	
-       CoffeeCup large = new CoffeeCup(100,50,225,150);
-       CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
+       Pencil p1 = new Pencil(20,50,50,100);
+       Pencil p2 = new Pencil(80,50,75,150);
+       Pencil p3 = new Pencil(170,50,100,200);
+       Pencil p4 = new Pencil(290,50,125,250);
+       Pencil p5 = new Pencil(450,50,150,300);
        
-       g2.setColor(Color.RED);     g2.draw(large);
-       g2.setColor(Color.GREEN);   g2.draw(smallCC);
+       g2.setColor(Color.RED);     g2.draw(p1);
+       g2.setColor(Color.GREEN);   g2.draw(p2);
+       g2.setColor(Color.BLUE);    g2.draw(p3);
+       g2.setColor(Color.ORANGE);  g2.draw(p4);
+       g2.setColor(Color.MAGENTA); g2.draw(p5);
        
        
     }
