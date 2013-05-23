@@ -18,9 +18,7 @@ import edu.ucsb.cs56.S13.drawings.utilities.GeneralPathWrapper;
 
    This provides an example of how you can start with the coordinates
    of a hard coded object, and end up with an object that can be
-   drawn anywhere, with any width or height.
-   
-      
+   drawn anywhere, with any width or height.     
    @author Mathew Glodack 
    @version for CS56, S13, UCSB, 5/18/13
    
@@ -31,6 +29,10 @@ public class Tree extends GeneralPathWrapper implements Shape
     
     /**
      * Constructor for objects of class Tree
+     * @param x for the x position
+     * @param y for the y position
+     * @param width for the width of the Tree
+     * @param height for the height of the Tree
      */
     public Tree(double x, double y, double width, double height)
     {
@@ -43,53 +45,43 @@ public class Tree extends GeneralPathWrapper implements Shape
         final double ORIG_ULY = 100.0; 
         final double ORIG_HEIGHT = 300.0; 
         final double ORIG_WIDTH = 400.0; 
-                
+
+	double xPos = x+ width/2.0;
+	
+	
+               
         GeneralPath leftSide = new GeneralPath();
       
         //leftSide of the tree
        
-        leftSide.moveTo(200,400);
+	leftSide.moveTo(xPos, y);
 
-        leftSide.lineTo(185,430);
-        leftSide.lineTo(190,430);
+        leftSide.lineTo(xPos-width*.10,y+height*.25);
+        leftSide.lineTo(xPos-width*.05, y+height*.25);
 
-        leftSide.lineTo(175,460);
-        leftSide.lineTo(180,460);
+        leftSide.lineTo(xPos-width*.20,y+height*.50);
+        leftSide.lineTo(xPos-width*.10,y+height*.50);
 
-	leftSide.lineTo(165,490);
-	leftSide.lineTo(190,490);
+	leftSide.lineTo(xPos-width*.30,y+height*.75);
+	leftSide.lineTo(xPos-width*.05,y+height*.75);
 
-	leftSide.lineTo(190,510);
-	leftSide.lineTo(200,510);
+	leftSide.lineTo(xPos-width*.05,y+height*.90);
+	leftSide.lineTo(xPos,y+height*.90);
         
 	
         Shape rightSide = ShapeTransforms.horizontallyFlippedCopyOf(leftSide);
        
         // after flipping around the upper left hand corner of the
-        // bounding box, we move this over to the right by 400 pixels
+        // bounding box, we move this over to the right by width*.60
        
-        rightSide = ShapeTransforms.translatedCopyOf(rightSide, 70.0, 0.0);
-       
+        rightSide = ShapeTransforms.translatedCopyOf(rightSide, width*.6, 0.0);
+      
         // now we put the whole thing together ino a single path.
        
         GeneralPath wholeTree = new GeneralPath ();
         wholeTree.append(leftSide, false);
-        wholeTree.append(rightSide, false);
-
-        // translate to the origin by subtracting the original upper left x and y
-        // then translate to (x,y) by adding x and y
-        
-        Shape s = ShapeTransforms.translatedCopyOf(wholeTree, -ORIG_ULX + x, -ORIG_ULY + y);
- 
-	// scale to correct height and width
-        s =  ShapeTransforms.scaledCopyOf(s,
-					  width/ORIG_WIDTH,
-					  height/ORIG_HEIGHT) ;
-	 
-	// Use the GeneralPath constructor that takes a shape and returns
-	// it as a general path to set our instance variable cup
-        
-	this.set(new GeneralPath(s));
+        wholeTree.append(rightSide, false); 
+       	this.set(new GeneralPath(wholeTree));
         
     }
 
