@@ -1,12 +1,10 @@
 package edu.ucsb.cs56.S13.drawings.mglodack.simple;
 
-
-
 /**
  * Circle extends Ellipse2D to make it easier to draw circles
  * because the parameters to the constructor are more convenient
  * 
- * @author P. Conrad  
+ * @author P. Conrad, Mathew Glodack
  * @version CS56, Spring 2013, UCSB
  */
 public class Circle extends java.awt.geom.Ellipse2D.Double implements java.awt.Shape
