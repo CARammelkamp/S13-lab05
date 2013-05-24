@@ -14,7 +14,7 @@ import edu.ucsb.cs56.S13.drawings.utilities.ShapeTransforms;
 import edu.ucsb.cs56.S13.drawings.utilities.GeneralPathWrapper;
 
 /**
-   A Pokeball class (wrapper around a General Path, implements Shape)
+   A Masterball class (wrapper around a General Path, implements Shape)
 
    @author Will Mateer 
    @version for CS56, S13, UCSB, 5/17/13
@@ -25,20 +25,15 @@ public class Masterball extends Pokeball implements Shape
 
     
     /**
-     * Constructor for objects of class Pokeball
+     * Constructor for objects of class Masterball
      */
     public Masterball(double x, double y, double width, double height)
     {
-		super(x,y,width,height);
+		super(0,0,240,240);
 		
-		GeneralPath gp = this.get();
+		GeneralPath fp = this.get();
 		
-        final double ORIG_ULX = 0.0; 
-        final double ORIG_ULY = 0.0;
-        final double ORIG_HEIGHT = 240.0; 
-        final double ORIG_WIDTH = 240.0; 
-                
-		System.out.println("Start of Constructor of Masterball");
+		GeneralPath gp = new GeneralPath(fp);
 		
 		GeneralPath leftSideM = new GeneralPath();
         leftSideM.moveTo(80,80);
@@ -48,33 +43,31 @@ public class Masterball extends Pokeball implements Shape
 		
 		leftSideM.lineTo(140,50);
 		leftSideM.lineTo(160,80);
-       
-        GeneralPath wholeM = new GeneralPath ();
+
+        gp.append(leftSideM, false);
 		
-        wholeM.append(leftSideM, false);
-		
-		System.out.println("Pokeball assembled into shape");
-        // translate to the origin by subtracting the original upper left x and y
-        // then translate to (x,y) by adding x and y
-        
-		
-        //Shape s = ShapeTransforms.translatedCopyOf(wholeM, -ORIG_ULX + x, -ORIG_ULY + y);
-		//Shape s = ShapeTransforms.translatedCopyOf(wholeM, -ORIG_ULX + x, -ORIG_ULY + y);
- 
-	// scale to correct height and width
-        //s =  ShapeTransforms.scaledCopyOf(s, width/ORIG_WIDTH, height/ORIG_HEIGHT) ;
-		//Shape s =  ShapeTransforms.scaledCopyOf(wholeM, width/ORIG_WIDTH, height/ORIG_HEIGHT) ;
-		
-		Shape s =  ShapeTransforms.scaledCopyOf(wholeM, width/ORIG_WIDTH, height/ORIG_HEIGHT) ;
-		s = ShapeTransforms.translatedCopyOf(s, 0, 0);
+		gp = MasterballScalingHelper(gp,x,y,width,height);
 	
-		// Use the GeneralPath constructor that takes a shape and returns
-	// it as a general path to set our instance variable cup
-        
-		gp.append(s,false);
-		
-	this.set(new GeneralPath(gp));
+		this.set(new GeneralPath(gp));
         
     }
+	
+	/**
+	 Private Helper method to implement the scaling and displacement of the Masterball Drawing
+	 @param gp Input GeneralPath that is to be modified and returned
+	 @param x New Upper Left X-coordinate to move drawing to
+	 @param y New Upper Left Y-coordinate to move drawing to
+	 @param width variable that determines scaling of width from original
+	 @param height variable that determines scaling of height from original
+	 @return NewPath GeneralPath return value that is the modified version of the input with the specificed values
+	 */
+	
+	private GeneralPath MasterballScalingHelper(GeneralPath gp, double x, double y, double width, double height){
+		Shape s = ShapeTransforms.translatedCopyOf(gp, x, y);	
+		s =  ShapeTransforms.scaledCopyOf(s, width/240, height/240);
+		GeneralPath NewPath = new GeneralPath();
+		NewPath.append(s,false);
+		return NewPath;
+	}
 
 }

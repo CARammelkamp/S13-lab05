@@ -25,7 +25,11 @@ public class Pokeball extends GeneralPathWrapper implements Shape
 
     
     /**
-     * Constructor for objects of class Pokeball
+	 Constructor for objects of class Pokeball
+	 @param x New Upper Left X-coordinate to move drawing to
+	 @param y New Upper Left Y-coordinate to move drawing to
+	 @param width variable that determines scaling of width from original
+	 @param height variable that determines scaling of height from original
      */
     public Pokeball(double x, double y, double width, double height)
     {
@@ -35,8 +39,6 @@ public class Pokeball extends GeneralPathWrapper implements Shape
         final double ORIG_HEIGHT = 240.0; 
         final double ORIG_WIDTH = 240.0;
                 
-		System.out.println("Start of Constructor of Pokeball");
-		
         GeneralPath leftSideMidLine = new GeneralPath();
         leftSideMidLine.moveTo(0,120);
         leftSideMidLine.lineTo(90,120);
@@ -51,8 +53,6 @@ public class Pokeball extends GeneralPathWrapper implements Shape
 		
 		Circle middleCircle = new Circle(120,120,30);
 																	
-        // now we put the whole thing together ino a single path.
-       
         GeneralPath wholePokeball = new GeneralPath ();
 		
         wholePokeball.append(leftSideMidLine, false);
@@ -60,24 +60,12 @@ public class Pokeball extends GeneralPathWrapper implements Shape
         wholePokeball.append(largeCircle, false);
 		wholePokeball.append(innerCircle, false);
 		wholePokeball.append(middleCircle, false);
+	
+        Shape s = ShapeTransforms.translatedCopyOf(wholePokeball, x, y);
 		
-		System.out.println("Pokeball assembled into shape");
-        // translate to the origin by subtracting the original upper left x and y
-        // then translate to (x,y) by adding x and y
-        
+	    s =  ShapeTransforms.scaledCopyOf(s, width/ORIG_WIDTH, height/ORIG_HEIGHT) ;
 		
-        //Shape s = ShapeTransforms.translatedCopyOf(wholePokeball, -ORIG_ULX + x, -ORIG_ULY + y);
-		Shape s = ShapeTransforms.translatedCopyOf(wholePokeball, 0, 0);
- 
-	// scale to correct height and width
-        s =  ShapeTransforms.scaledCopyOf(s, width/ORIG_WIDTH, height/ORIG_HEIGHT) ;
-		//Shape s =  ShapeTransforms.scaledCopyOf(wholePokeball, width/ORIG_WIDTH, height/ORIG_HEIGHT) ;
-	 
-	// Use the GeneralPath constructor that takes a shape and returns
-	// it as a general path to set our instance variable cup
-        
-	this.set(new GeneralPath(s));
-        
-    }
+		this.set(new GeneralPath(s));
 
+    }
 }
