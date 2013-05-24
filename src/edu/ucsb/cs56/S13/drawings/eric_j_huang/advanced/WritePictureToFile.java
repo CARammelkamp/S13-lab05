@@ -15,7 +15,7 @@ import edu.ucsb.cs56.S13.drawings.utilities.GeneralPathWrapper;
  *  A class with a main method that can write a drawing to a graphics file.
  *  
  *  @author P. Conrad, 
- *  @version for CS56, W11 UCSB
+ *  @version for CS56, S13 UCSB
  */
 
 public class WritePictureToFile

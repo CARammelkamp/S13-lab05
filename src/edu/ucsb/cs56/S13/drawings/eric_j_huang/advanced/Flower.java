@@ -16,7 +16,7 @@ import java.awt.geom.Ellipse2D;
 import edu.ucsb.cs56.S13.drawings.utilities.ShapeTransforms;
 import edu.ucsb.cs56.S13.drawings.utilities.GeneralPathWrapper;
 /**
-   A Flower
+   A Flower.
       
    @author Phill Conrad 
    @author Eric Huang
@@ -26,7 +26,8 @@ import edu.ucsb.cs56.S13.drawings.utilities.GeneralPathWrapper;
 public class Flower extends Grass implements Shape
 {
     /**
-     * Constructor for objects of class CoffeeCup
+     * Constructor for objects of class Flower
+     * I realized the Circle class would be useful so I implemented it in
      */
     public Flower(double x, double y, double width, double height)
     {
