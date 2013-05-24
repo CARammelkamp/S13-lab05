@@ -26,6 +26,10 @@ public class Masterball extends Pokeball implements Shape
     
     /**
      * Constructor for objects of class Masterball
+     * @param x New Upper Left X-Coordinate to move drawing to
+     * @param y New Upper Left Y-Coordiante to move drawing to
+     * @param width variable that determines scaling of width from original
+     * @param height variable that determines scaling of height from original
      */
     public Masterball(double x, double y, double width, double height)
     {
@@ -61,7 +65,6 @@ public class Masterball extends Pokeball implements Shape
 	 @param height variable that determines scaling of height from original
 	 @return NewPath GeneralPath return value that is the modified version of the input with the specificed values
 	 */
-	
 	private GeneralPath MasterballScalingHelper(GeneralPath gp, double x, double y, double width, double height){
 		Shape s = ShapeTransforms.translatedCopyOf(gp, x, y);	
 		s =  ShapeTransforms.scaledCopyOf(s, width/240, height/240);
