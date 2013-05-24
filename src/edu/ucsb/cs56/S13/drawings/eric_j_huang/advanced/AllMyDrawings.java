@@ -35,21 +35,22 @@ public class AllMyDrawings
 	Grass h1 = new Grass(100,250,50,75);
 	g2.setColor(Color.CYAN); g2.draw(h1);
 	
-	// Make a black house that's half the size, 
-	// and moved over 300 pixels in x direction
-
+	// draw a grass with black color, and make it only half the size
+	// of the first one and move it to the right by 300 pixels
 	Shape h2 = ShapeTransforms.scaledCopyOfLL(h1,0.5,0.5);
 	h2 = ShapeTransforms.translatedCopyOf(h2,300,0);
 	g2.setColor(Color.BLACK); g2.draw(h2);
 	
-	// Here's a house that's 4x as big (2x the original)
-	// and moved over 150 more pixels to right.
+	// draw a grass that's 2 times the size of the first grass
+	// and move it over 150 to the right so it won't be block by 
+	// the big one
 	h2 = ShapeTransforms.scaledCopyOfLL(h2,4,4);
 	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
 	
-	// We'll draw this with a thicker stroke
+	// This one is draw with thicker line
 	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);       
 	
+	// notes from Prof. Conrad:
 	// for hex colors, see (e.g.) http://en.wikipedia.org/wiki/List_of_colors
 	// #002FA7 is "International Klein Blue" according to Wikipedia
 	// In HTML we use #, but in Java (and C/C++) its 0x
@@ -59,7 +60,7 @@ public class AllMyDrawings
 	g2.setColor(new Color(0x002FA7)); 
 	g2.draw(h2); 
 	
-	// Draw two houses with Windows
+	// draw two flowers
 	
 	Flower hw1 = new Flower(50,350,40,75);
 	Flower hw2 = new Flower(200,350,200,100);
@@ -67,7 +68,7 @@ public class AllMyDrawings
 	g2.draw(hw1);
 	g2.setColor(new Color(0x8F00FF)); g2.draw(hw2);
 	
-	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
+	// sign and labels
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
@@ -95,18 +96,19 @@ public class AllMyDrawings
 	Grass h1 = new Grass(100,250,50,75);
 	g2.setColor(Color.CYAN); g2.draw(h1);
 	
-	// Make a black grass that's half the size, 
-	// and moved over 300 pixels in x direction
+	// draw a grass with black color, and make it only half the size
+	// of the first one and move it to the right by 300 pixels
 	Shape h2 = ShapeTransforms.scaledCopyOfLL(h1,0.5,0.5);
 	h2 = ShapeTransforms.translatedCopyOf(h2,300,0);
 	g2.setColor(Color.BLACK); g2.draw(h2);
 	
-	// Here's a house that's 4x as big (2x the original)
-	// and moved over 150 more pixels to right.
+	// draw a grass that's 2 times the size of the first grass
+	// and move it over 150 to the right so it won't be block by 
+	// the big one
 	h2 = ShapeTransforms.scaledCopyOfLL(h2,4,4);
 	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
 	
-	// We'll draw this with a thicker stroke
+	// This one is draw with thicker line
 	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);       
 	
 	// for hex colors, see (e.g.) http://en.wikipedia.org/wiki/List_of_colors
@@ -118,7 +120,7 @@ public class AllMyDrawings
 	g2.setColor(new Color(0x002FA7)); 
 	g2.draw(h2); 
 	
-	// Draw two grass with Windows
+	// Draw two flowers
 	
 	Flower hw1 = new Flower(50,350,40,75);
 	Flower hw2 = new Flower(200,350,200,100);
@@ -131,7 +133,7 @@ public class AllMyDrawings
 
 	g2.draw(hw3);
 	
-	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
+	// sign and label
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
@@ -148,7 +150,7 @@ public class AllMyDrawings
 	g2.drawString("A bunch of flowers by Eric Huang", 20,20);
 
 	
-	// Draw some coffee cups.
+	// Draw some flowers
 	
        Flower large = new Flower(100,300,225,150);
        Flower smallCC = new Flower(20,400,40,30);

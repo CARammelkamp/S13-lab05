@@ -31,14 +31,19 @@ public class Flower extends Grass implements Shape
     public Flower(double x, double y, double width, double height)
     {
 		super(x,y,width,height);
-		
-		double centerX = x + width/2;
-		double centerY = y - height/2;
-		double firstQuartY = y - height/4;
+
+		double centerX = x + width/2; /* coordinate of x at the center */
+		double centerY = y - height/2; /* coordinate of y at the center */
+		double firstQuartY = y - height/4; /* the height of the two split */
 		double radius = width/6;
 		
+		// the GeneralPath that I'm going to append stuff onto
 		GeneralPath gp = this.get();
 		
+		/* create the flower part of the flower, they're
+		 * all in relation to each other instead of hard coded
+		 * coordinate
+		 */
 		Circle centerFlower =
 			new Circle(centerX, centerY, radius);
 		
@@ -51,6 +56,7 @@ public class Flower extends Grass implements Shape
 		Circle rightFlower =
 			new Circle(centerX + 2*radius, centerY, radius);
 			
+		/* add the flower part to the grass part */
 		GeneralPath wholeFlower = this.get();
         wholeFlower.append(centerFlower, false);
         wholeFlower.append(topFlower, false);

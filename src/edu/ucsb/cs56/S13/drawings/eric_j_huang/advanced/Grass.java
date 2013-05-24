@@ -30,23 +30,27 @@ public class Grass extends GeneralPathWrapper implements Shape
        @param x x coord of lower left corner of grass
        @param y y coord of lower left corner of grass
        @param width width of the picture
-       @param height of picture (including first story and second story)
+       @param height of picture (from root to top of flower)
      */
     public Grass(double x, double y, double width, double height)
     {
+		/* get the coordinate of x and y at the center */
 		double centerX = x + width/2;
 		double centerY = y - height/2;
-		double firstQuartY = y - height/4;
+		double firstQuartY = y - height/4; /* how high the split will go */
 		
+		// draw the grass in the middle
 		Line2D.Double centerGrass 
 			= new Line2D.Double(centerX, y, centerX, centerY);
-			
+		
+		// draw the two splits
 		Line2D.Double leftGrass
 			= new Line2D.Double(centerX, y, x, firstQuartY);
 		
 		Line2D.Double rightGrass
 			= new Line2D.Double(centerX, y, x+width, firstQuartY);
-			
+		
+		// put the three part of grass together
 		GeneralPath wholeGrass = this.get();
 		wholeGrass.append(centerGrass, false);
 		wholeGrass.append(leftGrass, false);
