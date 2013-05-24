@@ -141,8 +141,33 @@ public class AllMyDrawings
 
     public static void drawPicture3(Graphics2D g2) {
 	
+		
+		g2.drawString("A bunch of Pokeballs", 20,20);
+		
+		
+		// Draw some Pokeballs.
+		
+		Masterball largeBall = new Masterball(0,0,600,600);
+		Masterball middleBall = new Masterball(450,200,300,300);
+		Masterball smallBall = new Masterball(0,120,100,170);
+		
+		Masterball testBall = new Masterball(0,0,240,240);
+		
+		g2.setColor(Color.BLACK);
+		g2.draw(testBall);
+		g2.setColor(Color.GREEN);
+		g2.draw(middleBall);
+		g2.setColor(Color.RED);     
+		g2.draw(largeBall);
+		System.out.println("First Pokeball Drawn");
+		g2.setColor(Color.BLUE);
+		System.out.println("Second Pokeball Drawn");
+		g2.draw(smallBall);
+		
+		
+    }	
 	// label the drawing
-	
+	/*
 	g2.drawString("A bunch of Coffee Cups by Phill Conrad", 20,20);
 
 	
@@ -155,7 +180,7 @@ public class AllMyDrawings
        g2.setColor(Color.GREEN);   g2.draw(smallCC);
        
        
-    }
+    }*/
     
 
 }

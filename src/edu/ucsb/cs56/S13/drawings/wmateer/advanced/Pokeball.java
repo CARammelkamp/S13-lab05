@@ -30,45 +30,48 @@ public class Pokeball extends GeneralPathWrapper implements Shape
     public Pokeball(double x, double y, double width, double height)
     {
 		
-        final double ORIG_ULX = 0.0; //??? 
-        final double ORIG_ULY = 0.0; //???
-        final double ORIG_HEIGHT = 2400.0; 
-        final double ORIG_WIDTH = 2400.0; // Biggest Circle radius is 4 * 6r of second biggest circle  
+        final double ORIG_ULX = 0.0; 
+        final double ORIG_ULY = 0.0;
+        final double ORIG_HEIGHT = 240.0; 
+        final double ORIG_WIDTH = 240.0;
                 
+		System.out.println("Start of Constructor of Pokeball");
+		
         GeneralPath leftSideMidLine = new GeneralPath();
-        leftSideMidLine.moveTo(0,1200);
-        leftSideMidLine.lineTo(900,1200);
+        leftSideMidLine.moveTo(0,120);
+        leftSideMidLine.lineTo(90,120);
         
         GeneralPath rightSideMidLine = new GeneralPath();
-		rightSideMidLine.moveTo(1500,1200);
-        rightSideMidLine.lineTo(2400,1200);
+		rightSideMidLine.moveTo(150,120);
+        rightSideMidLine.lineTo(240,120);
        
-        Circle largeCircle = new Circle(0,0,1200);
+        Circle largeCircle = new Circle(120,120,120);
 		
-		Circle innerCircle = new Circle(900,900,200);
+		Circle innerCircle = new Circle(120,120,20);
 		
-		Circle middleCircle = new Circle(900,900,300);
+		Circle middleCircle = new Circle(120,120,30);
 																	
         // now we put the whole thing together ino a single path.
        
         GeneralPath wholePokeball = new GeneralPath ();
+		
         wholePokeball.append(leftSideMidLine, false);
         wholePokeball.append(rightSideMidLine, false);
         wholePokeball.append(largeCircle, false);
 		wholePokeball.append(innerCircle, false);
 		wholePokeball.append(middleCircle, false);
 		
+		System.out.println("Pokeball assembled into shape");
         // translate to the origin by subtracting the original upper left x and y
         // then translate to (x,y) by adding x and y
         
-		//NEEED TOOO DOOO
 		
-        Shape s = ShapeTransforms.translatedCopyOf(wholeCup, -ORIG_ULX + x, -ORIG_ULY + y);
+        //Shape s = ShapeTransforms.translatedCopyOf(wholePokeball, -ORIG_ULX + x, -ORIG_ULY + y);
+		Shape s = ShapeTransforms.translatedCopyOf(wholePokeball, 0, 0);
  
 	// scale to correct height and width
-        s =  ShapeTransforms.scaledCopyOf(s,
-					  width/ORIG_WIDTH,
-					  height/ORIG_HEIGHT) ;
+        s =  ShapeTransforms.scaledCopyOf(s, width/ORIG_WIDTH, height/ORIG_HEIGHT) ;
+		//Shape s =  ShapeTransforms.scaledCopyOf(wholePokeball, width/ORIG_WIDTH, height/ORIG_HEIGHT) ;
 	 
 	// Use the GeneralPath constructor that takes a shape and returns
 	// it as a general path to set our instance variable cup
