@@ -11,13 +11,16 @@ import java.awt.Rectangle;
 import java.awt.geom.PathIterator;
 import java.awt.geom.AffineTransform;
 
+import java.awt.geom.Ellipse2D;
+
 import edu.ucsb.cs56.S13.drawings.utilities.ShapeTransforms;
 import edu.ucsb.cs56.S13.drawings.utilities.GeneralPathWrapper;
 /**
-   A House
+   A Flower
       
    @author Phill Conrad 
-   @version for CS56, W11, UCSB, 02/23/2011
+   @author Eric Huang
+   @version for CS56, Spring 13, UCSB
    
 */
 public class Flower extends Grass implements Shape
@@ -27,23 +30,26 @@ public class Flower extends Grass implements Shape
      */
     public Flower(double x, double y, double width, double height)
     {
-		double radius = width/6;
-		
 		super(x,y,width,height);
+		
+		double centerX = x + width/2;
+		double centerY = y - height/2;
+		double firstQuartY = y - height/4;
+		double radius = width/6;
 		
 		GeneralPath gp = this.get();
 		
 		Circle centerFlower =
-			new Circle(super.centerX, super.centerY, radius);
+			new Circle(centerX, centerY, radius);
 		
 		Circle topFlower =
-			new Circle(super.centerX, super.centerY - 2*radius, radius);
+			new Circle(centerX, centerY - 2*radius, radius);
 			
 		Circle leftFlower =
-			new Circle(super.centerX - 2*radius, super.centerY, radius);
+			new Circle(centerX - 2*radius, centerY, radius);
 			
 		Circle rightFlower =
-			new Circle(super.centerX + 2*radius, super.centerY, radius);
+			new Circle(centerX + 2*radius, centerY, radius);
 			
 		GeneralPath wholeFlower = this.get();
         wholeFlower.append(centerFlower, false);
